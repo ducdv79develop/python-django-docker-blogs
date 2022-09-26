@@ -1,0 +1,4 @@
+*.log
+*.env
+_app/static/*
+_app/*.log
