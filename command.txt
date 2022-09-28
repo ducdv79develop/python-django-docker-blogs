@@ -1,0 +1,63 @@
+1. install script
+py -m venv django-scripts
+python -m venv django-scripts
+
+# .gitignore
+#####
+.idea/*
+django-scripts/Include/*
+django-scripts/Lib/*
+#####
+
+2. run environment
+django-scripts\Scripts\activate.bat
+
+3. install Django
+py -m pip install Django
+python -m pip install Django
+
+** check version : django-admin --version
+
+4. install Mysql
+pip install MySQL-python 
+pip install pymysql
+pip install mysqlclient
+
+5. run server
+py manage.py runserver
+python manage.py runserver
+
+6. migration data
+py manage.py migrate
+python manage.py migrate
+
+7. create super admin
+python manage.py createsuperuser --username=admin --email=admin@gmail.com
+ducdv123456
+ducdv123456
+
+8. exec container
+docker compose exec django sh
+docker compose exec nginx sh
+docker compose exec db sh
+
+
+
+
+
+
+
+
+
+
+---------------------------
+## setting terminal
+1. Open pycharm --> Go to Settings --> Tools --> Terminal
+2. Change the Shell Path to C:\Windows\system32\cmd.exe from PS
+3. Check the Activate virtualenv checkbox
+4. Hit apply and open new terminal
+
+
+
+
+

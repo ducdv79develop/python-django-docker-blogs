@@ -12,7 +12,7 @@ services:
     networks:
       - database_network
     environment:
-      - MYSQL_ROOT_PASSWORD
+      - MYSQL_ROOT_PASSWORD=rootducdv@79
       - MYSQL_DATABASE
       - MYSQL_USER
       - MYSQL_PASSWORD
