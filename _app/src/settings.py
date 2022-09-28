@@ -38,6 +38,10 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+# super admin
+ADMINS = [
+    ('DucDV', 'duc.daovan0709@gmail.com')
+]
 
 
 # Redis cache support
@@ -136,3 +140,7 @@ STATIC_ROOT = 'static'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# custom date format
+DATE_FORMAT = '%m-%d-%Y'
+DATETIME_FORMAT = '%m-%d-%Y %H:%M:%S'
