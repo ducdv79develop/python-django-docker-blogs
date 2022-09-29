@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+from django.conf.locale.vi import formats as vi_formats
+from django.conf.locale.en import formats as en_formats
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -69,6 +72,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -142,5 +146,7 @@ STATIC_ROOT = 'static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # custom date format
-DATE_FORMAT = '%m-%d-%Y'
-DATETIME_FORMAT = '%m-%d-%Y %H:%M:%S'
+en_formats.DATE_FORMAT = 'd-m-Y'
+en_formats.DATETIME_FORMAT = 'd-m-Y H:i:s'
+vi_formats.DATE_FORMAT = 'd-m-Y'
+vi_formats.DATETIME_FORMAT = 'd-m-Y H:i:s'
