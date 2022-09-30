@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
 ]
+INSTALLED_APPS += ('django_summernote', )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -150,3 +151,6 @@ en_formats.DATE_FORMAT = 'd-m-Y'
 en_formats.DATETIME_FORMAT = 'd-m-Y H:i:s'
 vi_formats.DATE_FORMAT = 'd-m-Y'
 vi_formats.DATETIME_FORMAT = 'd-m-Y H:i:s'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

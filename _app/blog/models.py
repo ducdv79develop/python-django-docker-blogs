@@ -3,7 +3,7 @@ from src.core import abstract_models
 
 
 # Create your models here.
-class Blog(abstract_models.SoftDeleteModel):
+class Post(abstract_models.SoftDeleteModel):
     title = models.CharField(max_length=255)
     content = models.CharField(max_length=3000)
     status = models.SmallIntegerField(default=0)
@@ -12,6 +12,9 @@ class Blog(abstract_models.SoftDeleteModel):
     updated_by = models.IntegerField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
 
 
 class Comment(abstract_models.SoftDeleteModel):

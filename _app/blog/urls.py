@@ -10,3 +10,9 @@ from . import views
 #     path('edit/update/<int:id>', views.update, name='update'),
 #     path('test/', views.test, name='test'),
 # ]
+
+app_name = 'blog'
+
+urlpatterns = [
+    path('', views.home, name='homepage'),
+]

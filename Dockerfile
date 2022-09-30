@@ -13,9 +13,11 @@ RUN mkdir -p /usr/src/app
 
 COPY ./_app /usr/src/app
 COPY Pipfile /usr/src/app/
-COPY Pipfile.lock /usr/src/app/
+# no use file lock
+# COPY Pipfile.lock /usr/src/app/
 
 WORKDIR /usr/src/app
 
+RUN pipenv lock
 RUN pipenv install --system --deploy
-#RUN python manage.py collectstatic --no-input
+# RUN python manage.py collectstatic --no-input

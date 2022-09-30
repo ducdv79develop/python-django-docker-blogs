@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 Django = "*"
+django-summernote = "0.8.20.0"
 gunicorn = "*"
 psycopg2 = "*"
 redis = "*"
