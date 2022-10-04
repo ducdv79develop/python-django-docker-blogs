@@ -10,6 +10,9 @@ gunicorn = "*"
 psycopg2 = "*"
 redis = "*"
 hiredis = "*"
+djangorestframework = "3.14.0"
+markdown = "3.4.1"
+django-filter = "22.1"
 
 [dev-packages]
 black = "*"

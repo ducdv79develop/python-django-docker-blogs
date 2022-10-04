@@ -17,7 +17,26 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers, serializers, viewsets
+from django.contrib.auth.models import User
 # from blog.admin import blog_site
+
+# Serializers define the API representation.
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ['url', 'username', 'email', 'is_staff']
+
+
+# ViewSets define the view behavior.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+# Routers provide a way of automatically determining the URL conf.
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
 
 admin.site.site_header = "Django Blogs Admin"
 admin.site.index_title = "Welcome to Django Blogs Admin"
@@ -27,6 +46,8 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     # path('blogadmin/', blog_site.urls),
     # path('', include('blog.urls', namespace='blog')),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 if settings.DEBUG:

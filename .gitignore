@@ -16,3 +16,4 @@
 _app/*.log
 *.lock
 _app/media/django-summernote/*
+_app/static/*

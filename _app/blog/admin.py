@@ -1,7 +1,7 @@
 from django.contrib import admin
-from blog.models import Post
-from blog.forms import CustomBlogForm
 from django.utils import timezone
+from blog import models, forms
+from blog.services import admin_services
 
 
 STATUS_CHOICES = (
@@ -22,18 +22,18 @@ def make_soft_delete(modelAdmin, request, queryset):
     queryset.update(deleted_at=timezone.now())
 
 
-@admin.register(Post)
-class BlogAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'content', 'status', 'public_flag', 'deleted_at']
-    list_filter = ['title', 'content', 'status', 'public_flag']
-    ordering = ['title']
-    actions = [make_published, make_soft_delete]
-    form = CustomBlogForm
-    fields = ['title', 'content', ('status', 'public_flag')]
+@admin.register(models.Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'content', 'status', 'public_flag', 'deleted_at')
+    list_filter = ('title', 'content', admin_services.PostStatusFilter)
+    search_fields = ('title', 'content',)
+    actions = (make_published, make_soft_delete)
+    form = forms.CustomBlogForm
+    fields = ('title', 'content', ('status', 'public_flag'))
 
     def changelist_view(self, request, extra_context=None):
         extra_context = {'title': 'Danh sach Blog'}
-        return super(BlogAdmin, self).changelist_view(request, extra_context=extra_context)
+        return super(PostAdmin, self).changelist_view(request, extra_context=extra_context)
 
     def save_form(self, request, form, change):
         pass
