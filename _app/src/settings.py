@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'blog',
     'django_summernote',
     'rest_framework',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [

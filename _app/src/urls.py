@@ -35,8 +35,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 # Routers provide a way of automatically determining the URL conf.
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
 
 admin.site.site_header = "Django Blogs Admin"
 admin.site.index_title = "Welcome to Django Blogs Admin"
@@ -46,8 +44,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     # path('blogadmin/', blog_site.urls),
     # path('', include('blog.urls', namespace='blog')),
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-v1', include('api.urls')),
 ]
 
 if settings.DEBUG:
