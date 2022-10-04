@@ -15,3 +15,4 @@
 *.env
 _app/*.log
 *.lock
+_app/media/django-summernote/*
